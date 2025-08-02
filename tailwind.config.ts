@@ -24,6 +24,13 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				'brand-primary': 'hsl(var(--brand-primary))',
+				'brand-text': 'hsl(var(--brand-text))',
+				'gray-text': 'hsl(var(--gray-text))',
+				'light-gray': 'hsl(var(--light-gray))',
+				'card-bg': 'hsl(var(--card-bg))',
+				'card-hover': 'hsl(var(--card-hover))',
+				'substitution-bg': 'hsl(var(--substitution-bg))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

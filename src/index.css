@@ -9,7 +9,16 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 0%;
+    
+    /* Recipe Generator Brand Colors */
+    --brand-primary: 36 85% 54%; /* #F2A42A */
+    --brand-text: 0 0% 0%; /* Black */
+    --gray-text: 0 0% 50%; /* #808080 */
+    --light-gray: 0 0% 95%; /* #F2F2F2 */
+    --card-bg: 0 0% 97%; /* #F8F8F8 */
+    --card-hover: 36 85% 95%; /* Light orange */
+    --substitution-bg: 36 100% 95%; /* #FFF7E6 */
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
