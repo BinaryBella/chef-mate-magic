@@ -76,6 +76,46 @@ const mockRecipes: Recipe[] = [
       { original: "Heavy cream", alternative: "Coconut cream", reason: "dairy-free" },
       { original: "Parmesan", alternative: "Vegan parmesan", reason: "vegan" }
     ]
+  },
+  {
+    id: "4",
+    title: "Creamy Tomato Pasta",
+    prepTime: "20 mins",
+    ingredients: ["Pasta", "Canned tomatoes", "Heavy cream", "Garlic", "Onion", "Basil", "Parmesan"],
+    instructions: [
+      "Cook pasta according to package directions",
+      "Sauté minced garlic and diced onion until fragrant",
+      "Add canned tomatoes and simmer for 10 minutes",
+      "Stir in heavy cream and let simmer for 5 more minutes",
+      "Add cooked pasta to sauce and toss to combine",
+      "Serve topped with fresh basil and grated Parmesan"
+    ],
+    difficulty: "Medium",
+    servings: 3,
+    substitutions: [
+      { original: "Heavy cream", alternative: "Coconut cream", reason: "dairy-free" },
+      { original: "Parmesan", alternative: "Vegan parmesan", reason: "vegan" }
+    ]
+  },
+  {
+    id: "5",
+    title: "Creamy Tomato Pasta",
+    prepTime: "20 mins",
+    ingredients: ["Pasta", "Canned tomatoes", "Heavy cream", "Garlic", "Onion", "Basil", "Parmesan"],
+    instructions: [
+      "Cook pasta according to package directions",
+      "Sauté minced garlic and diced onion until fragrant",
+      "Add canned tomatoes and simmer for 10 minutes",
+      "Stir in heavy cream and let simmer for 5 more minutes",
+      "Add cooked pasta to sauce and toss to combine",
+      "Serve topped with fresh basil and grated Parmesan"
+    ],
+    difficulty: "Medium",
+    servings: 3,
+    substitutions: [
+      { original: "Heavy cream", alternative: "Coconut cream", reason: "dairy-free" },
+      { original: "Parmesan", alternative: "Vegan parmesan", reason: "vegan" }
+    ]
   }
 ];
 
@@ -138,7 +178,7 @@ const Index = () => {
         </div>
 
         {/* Right Recipe Grid Area */}
-        <div className="hidden lg:flex w-1/2 p-8 items-center">
+        <div className="hidden lg:flex w-1/2 p-8 lg:pr-[8%] items-center">
           <RecipeGrid recipes={recipes} onOpenModal={handleOpenModal} />
         </div>
       </div>

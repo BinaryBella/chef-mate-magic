@@ -10,7 +10,7 @@ const GenerateButton = ({ onClick, disabled }: GenerateButtonProps) => {
     <Button
       onClick={onClick}
       disabled={disabled}
-      className="bg-brand-primary hover:bg-brand-primary/90 text-white font-bold px-8 py-3 rounded-lg text-lg"
+      className="bg-brand-primary w-full hover:bg-brand-primary/90 text-white font-bold px-8 py-3 rounded-lg text-lg"
     >
       Generate Smart Recipes
     </Button>
