@@ -149,7 +149,7 @@ const Index = () => {
     >
       <div className="min-h-screen flex">
         {/* Left Content Area */}
-        <div className="w-full lg:w-1/2 p-8 lg:pl-[8%] flex flex-col justify-center">
+        <div className="w-full lg:w-2/5 p-8 lg:pl-[8%] flex flex-col justify-center">
           <div className="max-w-[500px]">
             <BrandHeader />
             <HeroSection />
@@ -169,7 +169,7 @@ const Index = () => {
         </div>
 
         {/* Right Recipe Grid Area */}
-        <div className="hidden lg:flex w-1/2 p-8 lg:pr-[8%] items-center">
+        <div className="hidden lg:flex w-3/5 p-8 lg:pr-[8%] items-center">
           <RecipeGrid recipes={recipes} onOpenModal={handleOpenModal} />
         </div>
       </div>
