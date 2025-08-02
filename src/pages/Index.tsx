@@ -169,7 +169,7 @@ const Index = () => {
         </div>
 
         {/* Right Recipe Grid Area */}
-        <div className="hidden lg:flex w-3/5 p-8 lg:pr-[8%] items-center">
+        <div className="hidden lg:flex w-3/5 h-1000px p-8 lg:pr-[8%] items-center">
           <RecipeGrid recipes={recipes} onOpenModal={handleOpenModal} />
         </div>
       </div>
