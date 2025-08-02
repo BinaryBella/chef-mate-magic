@@ -79,43 +79,34 @@ const mockRecipes: Recipe[] = [
   },
   {
     id: "4",
-    title: "Creamy Tomato Pasta",
-    prepTime: "20 mins",
-    ingredients: ["Pasta", "Canned tomatoes", "Heavy cream", "Garlic", "Onion", "Basil", "Parmesan"],
+    title: "Asian Stir Fry",
+    prepTime: "15 mins",
+    ingredients: ["Mixed vegetables", "Soy sauce", "Ginger", "Garlic", "Sesame oil", "Rice"],
     instructions: [
-      "Cook pasta according to package directions",
-      "Sauté minced garlic and diced onion until fragrant",
-      "Add canned tomatoes and simmer for 10 minutes",
-      "Stir in heavy cream and let simmer for 5 more minutes",
-      "Add cooked pasta to sauce and toss to combine",
-      "Serve topped with fresh basil and grated Parmesan"
+      "Heat oil in wok over high heat",
+      "Add garlic and ginger, stir for 30 seconds",
+      "Add vegetables and stir fry for 5 minutes",
+      "Season with soy sauce and sesame oil",
+      "Serve immediately over cooked rice"
     ],
-    difficulty: "Medium",
-    servings: 3,
-    substitutions: [
-      { original: "Heavy cream", alternative: "Coconut cream", reason: "dairy-free" },
-      { original: "Parmesan", alternative: "Vegan parmesan", reason: "vegan" }
-    ]
+    difficulty: "Easy",
+    servings: 2
   },
   {
     id: "5",
-    title: "Creamy Tomato Pasta",
-    prepTime: "20 mins",
-    ingredients: ["Pasta", "Canned tomatoes", "Heavy cream", "Garlic", "Onion", "Basil", "Parmesan"],
+    title: "Chocolate Chip Cookies",
+    prepTime: "30 mins",
+    ingredients: ["Flour", "Butter", "Sugar", "Eggs", "Chocolate chips", "Vanilla", "Baking soda"],
     instructions: [
-      "Cook pasta according to package directions",
-      "Sauté minced garlic and diced onion until fragrant",
-      "Add canned tomatoes and simmer for 10 minutes",
-      "Stir in heavy cream and let simmer for 5 more minutes",
-      "Add cooked pasta to sauce and toss to combine",
-      "Serve topped with fresh basil and grated Parmesan"
+      "Preheat oven to 375°F (190°C)",
+      "Cream butter and sugar until fluffy",
+      "Add eggs and vanilla, mix well",
+      "Combine flour and baking soda, add to wet ingredients",
+      "Fold in chocolate chips",
+      "Drop onto baking sheet and bake for 10-12 minutes"
     ],
     difficulty: "Medium",
-    servings: 3,
-    substitutions: [
-      { original: "Heavy cream", alternative: "Coconut cream", reason: "dairy-free" },
-      { original: "Parmesan", alternative: "Vegan parmesan", reason: "vegan" }
-    ]
+    servings: 24
   }
 ];
 
