@@ -51,13 +51,14 @@ const IngredientInput = ({ selectedIngredients, onIngredientsChange }: Ingredien
     <div className="mb-6">
       <div className="mb-4">
         <div className="relative">
-          <textarea
+          <input
+          type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleInputKeyPress}
             placeholder="Enter an ingredient, e.g., chicken, tomatoes..."
-            className="w-full px-6 py-3 rounded-lg border-2 border-brand-primary focus:outline-none focus:border-brand-primary bg-white text-brand-text"
-          ></textarea>
+            className="w-full h-250px px-6 py-3 rounded-lg border-2 border-brand-primary focus:outline-none focus:border-brand-primary bg-white text-brand-text"
+          />
         </div>
         
         {/* Selected Ingredients Tags */}
