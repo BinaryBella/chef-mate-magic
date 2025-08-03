@@ -144,7 +144,7 @@ const Index = () => {
     <div 
       className="min-h-screen w-full bg-cover bg-center bg-no-repeat relative"
       style={{
-        backgroundImage: `url('/lovable-uploads/2a473b6d-863c-4bd1-a3b9-4f167c36af81.png')`
+        backgroundImage: `url('/lovable-uploads/BG-image.png')`
       }}
     >
       <div className="min-h-screen flex">
