@@ -7,6 +7,7 @@ import GenerateButton from "@/components/GenerateButton";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import RecipeGrid from "@/components/RecipeGrid";
 import RecipeModal from "@/components/RecipeModal";
+import { generateRecipes } from "@/services/AiService";
 
 interface Recipe {
   id: string;
@@ -19,97 +20,6 @@ interface Recipe {
   substitutions?: { original: string; alternative: string; reason: string }[];
 }
 
-// Mock data for demonstration
-const mockRecipes: Recipe[] = [
-  {
-    id: "1",
-    title: "Mediterranean Chicken Bowl",
-    prepTime: "25 mins",
-    ingredients: ["Chicken breast", "Quinoa", "Cherry tomatoes", "Cucumber", "Feta cheese", "Olive oil", "Lemon"],
-    instructions: [
-      "Season chicken breast with salt, pepper, and Mediterranean herbs",
-      "Heat olive oil in a pan and cook chicken for 6-7 minutes per side until golden",
-      "Cook quinoa according to package instructions",
-      "Dice tomatoes and cucumber into small pieces",
-      "Slice cooked chicken and arrange over quinoa",
-      "Top with vegetables, crumbled feta, and drizzle with lemon-olive oil dressing"
-    ],
-    difficulty: "Easy",
-    servings: 2,
-    substitutions: [
-      { original: "Chicken breast", alternative: "Tofu", reason: "vegan" },
-      { original: "Feta cheese", alternative: "Nutritional yeast", reason: "vegan" }
-    ]
-  },
-  {
-    id: "2",
-    title: "Garlic Herb Roasted Potatoes",
-    prepTime: "45 mins",
-    ingredients: ["Baby potatoes", "Garlic", "Fresh rosemary", "Olive oil", "Salt", "Black pepper"],
-    instructions: [
-      "Preheat oven to 425°F (220°C)",
-      "Wash and halve baby potatoes",
-      "Toss potatoes with olive oil, minced garlic, chopped rosemary, salt and pepper",
-      "Arrange in single layer on baking sheet",
-      "Roast for 35-40 minutes until golden and crispy",
-      "Garnish with fresh herbs before serving"
-    ],
-    difficulty: "Easy",
-    servings: 4
-  },
-  {
-    id: "3",
-    title: "Creamy Tomato Pasta",
-    prepTime: "20 mins",
-    ingredients: ["Pasta", "Canned tomatoes", "Heavy cream", "Garlic", "Onion", "Basil", "Parmesan"],
-    instructions: [
-      "Cook pasta according to package directions",
-      "Sauté minced garlic and diced onion until fragrant",
-      "Add canned tomatoes and simmer for 10 minutes",
-      "Stir in heavy cream and let simmer for 5 more minutes",
-      "Add cooked pasta to sauce and toss to combine",
-      "Serve topped with fresh basil and grated Parmesan"
-    ],
-    difficulty: "Medium",
-    servings: 3,
-    substitutions: [
-      { original: "Heavy cream", alternative: "Coconut cream", reason: "dairy-free" },
-      { original: "Parmesan", alternative: "Vegan parmesan", reason: "vegan" }
-    ]
-  },
-  {
-    id: "4",
-    title: "Asian Stir Fry",
-    prepTime: "15 mins",
-    ingredients: ["Mixed vegetables", "Soy sauce", "Ginger", "Garlic", "Sesame oil", "Rice"],
-    instructions: [
-      "Heat oil in wok over high heat",
-      "Add garlic and ginger, stir for 30 seconds",
-      "Add vegetables and stir fry for 5 minutes",
-      "Season with soy sauce and sesame oil",
-      "Serve immediately over cooked rice"
-    ],
-    difficulty: "Easy",
-    servings: 2
-  },
-  {
-    id: "5",
-    title: "Chocolate Chip Cookies",
-    prepTime: "30 mins",
-    ingredients: ["Flour", "Butter", "Sugar", "Eggs", "Chocolate chips", "Vanilla", "Baking soda"],
-    instructions: [
-      "Preheat oven to 375°F (190°C)",
-      "Cream butter and sugar until fluffy",
-      "Add eggs and vanilla, mix well",
-      "Combine flour and baking soda, add to wet ingredients",
-      "Fold in chocolate chips",
-      "Drop onto baking sheet and bake for 10-12 minutes"
-    ],
-    difficulty: "Medium",
-    servings: 24
-  }
-];
-
 const Index = () => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [dietaryRestrictions, setDietaryRestrictions] = useState("");
@@ -120,14 +30,16 @@ const Index = () => {
 
   const handleGenerate = async () => {
     if (selectedIngredients.length === 0) return;
-    
     setIsLoading(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setRecipes(mockRecipes);
+    try {
+      const aiRecipes = await generateRecipes(selectedIngredients, dietaryRestrictions);
+      setRecipes(aiRecipes);
+    } catch (error) {
+      console.log(error);
+      setRecipes([]); // Optionally handle error, e.g., show a toast
+    } finally {
       setIsLoading(false);
-    }, 2500);
+    }
   };
 
   const handleOpenModal = (recipe: Recipe) => {

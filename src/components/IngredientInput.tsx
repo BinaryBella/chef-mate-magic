@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { fetchQuickPickIngredients, IngredientCategory } from "@/services/openaiQuickPicks";
+import type { IngredientCategory } from "@/services/AiService";
+import { fetchQuickPickIngredients } from "@/services/AiService";
 
 interface IngredientInputProps {
   selectedIngredients: string[];
