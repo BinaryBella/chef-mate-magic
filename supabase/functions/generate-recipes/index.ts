@@ -13,7 +13,7 @@ serve(async (req) => {
 
   try {
     const { type, ingredients, dietaryInstructions } = await req.json();
-    const openAIApiKey = Deno.env.get('VITE_OPENAI_API_KEY');
+    const openAIApiKey = Deno.env.get('OPENAI_API_KEY');
 
     if (!openAIApiKey) {
       throw new Error('OpenAI API key not configured');
