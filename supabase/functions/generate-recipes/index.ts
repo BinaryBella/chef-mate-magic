@@ -23,12 +23,38 @@ serve(async (req) => {
     let userPrompt = "";
 
     if (type === 'ingredients') {
-      systemPrompt = "You are a perfect experienced senior chef can make incredible recipes using any ingredients for a cooking app.";
-      userPrompt = "Suggest 5-7 common ingredients for each of these categories: Proteins, Vegetables, Pantry Staples, Dairy, Herbs and Spices";
+      systemPrompt = "You are a perfect experienced senior chef who can make incredible recipes using any ingredients for a cooking app. Always respond with valid JSON format.";
+      userPrompt = `Suggest 5-7 common ingredients for each of these categories: Proteins, Vegetables, Pantry Staples, Dairy, Herbs and Spices.
+
+      Return the response in this exact JSON format:
+      {
+        "ingredients": [
+          {
+            "category": "Proteins",
+            "items": ["chicken breast", "ground beef", "salmon", "eggs", "tofu"]
+          },
+          {
+            "category": "Vegetables", 
+            "items": ["onions", "tomatoes", "carrots", "spinach", "bell peppers"]
+          },
+          {
+            "category": "Pantry Staples",
+            "items": ["rice", "pasta", "olive oil", "garlic", "flour"]
+          },
+          {
+            "category": "Dairy",
+            "items": ["milk", "cheese", "butter", "yogurt", "cream"]
+          },
+          {
+            "category": "Herbs and Spices",
+            "items": ["salt", "pepper", "basil", "oregano", "paprika"]
+          }
+        ]
+      }`;
     } else if (type === 'recipes') {
-      systemPrompt = "You are a perfect experienced senior chef who can make incredible recipes using any ingredients for a cooking app.";
+      systemPrompt = "You are a perfect experienced senior chef who can make incredible recipes using any ingredients for a cooking app. Always respond with valid JSON format.";
       userPrompt = `
-        Generate 3-5 recipe suggestions that use all ingredients. Prioritize recipes that minimize waste.
+        Generate 3-5 recipe suggestions that use the provided ingredients. Prioritize recipes that minimize waste.
         Consider provided dietary restrictions. Include simple cooking instructions.
         Give time to cooking the recipe and servings. Categorize the cooking level as easy, medium, or hard.
         Give additional substitutions for food for ingredients.
@@ -40,6 +66,28 @@ serve(async (req) => {
 
         Dietary Restrictions:
         ${dietaryInstructions || "None"}
+
+        Return the response in this exact JSON format:
+        {
+          "recipes": [
+            {
+              "id": "unique-id",
+              "title": "Recipe Name",
+              "prepTime": "30 minutes",
+              "ingredients": ["ingredient 1", "ingredient 2"],
+              "instructions": ["step 1", "step 2", "step 3"],
+              "difficulty": "easy",
+              "servings": 4,
+              "substitutions": [
+                {
+                  "original": "ingredient",
+                  "alternative": "substitute",
+                  "reason": "why this works"
+                }
+              ]
+            }
+          ]
+        }
       `;
     }
 
@@ -50,13 +98,13 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model: 'gpt-4.1-2025-04-14',
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
         ],
         response_format: { type: "json_object" },
-        temperature: 1,
+        temperature: 0.7,
       }),
     });
 
