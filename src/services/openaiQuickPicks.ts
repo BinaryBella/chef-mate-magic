@@ -28,7 +28,7 @@ export async function fetchQuickPickIngredients(): Promise<IngredientCategory[]>
     input: [
       {
         role: "system",
-        content: "You are a helpful assistant for a cooking app.",
+        content: "You are a perfect experienced senior chef can make incredible recipes using any ingredients for a cooking app.",
       },
       {
         role: "user",
