@@ -94,7 +94,9 @@ export async function generateRecipes(
       {
         role: "user",
         content: `
-          Generate 3-5 recipe suggestions that use all ingredients. Prioritize recipes that minimize waste.
+          Generate 3-5 recipe suggestions that use all ingredients. 
+          A very short and catchy title (max 4 words).
+          Prioritize recipes that minimize waste.
           Consider provided dietary restrictions. Include simple cooking instructions.
           Give time to cooking the recipe and servings. Categorize the cooking level as easy, medium, or hard.
           Give additional substitutions for food for ingredients.
