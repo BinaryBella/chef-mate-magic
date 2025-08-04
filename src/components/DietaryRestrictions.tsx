@@ -7,7 +7,7 @@ const DietaryRestrictions = ({ value, onChange }: DietaryRestrictionsProps) => {
   return (
     <div className="mb-6">
       <label className="block text-brand-text font-medium mb-2">
-        Any dietary restrictions? (e.g., vegan, gluten-free, nut-free)
+        Any dietary restrictions? (e.g., vegitarian, gluten-free, nut-free)
       </label>
       <textarea
         value={value}
